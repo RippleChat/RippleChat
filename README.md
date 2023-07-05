@@ -1,2 +1,2 @@
 # RippleChat
-2023 © Severin Memmishofer, Sebastian Lenzlinger dkafe
+2023 © Severin Memmishofer, Sebastian Lenzlinger
