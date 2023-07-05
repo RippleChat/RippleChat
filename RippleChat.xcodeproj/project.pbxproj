@@ -14,6 +14,7 @@
 		96454F2C2A558EBE0040BEBD /* RippleChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96454F2B2A558EBE0040BEBD /* RippleChatTests.swift */; };
 		96454F362A558EBE0040BEBD /* RippleChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96454F352A558EBE0040BEBD /* RippleChatUITests.swift */; };
 		96454F382A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96454F372A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift */; };
+		F58EB2D02A5590E800E22DA6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F58EB2CF2A5590E800E22DA6 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		96454F312A558EBE0040BEBD /* RippleChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RippleChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96454F352A558EBE0040BEBD /* RippleChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleChatUITests.swift; sourceTree = "<group>"; };
 		96454F372A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F58EB2CF2A5590E800E22DA6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		96454F0E2A558EBC0040BEBD = {
 			isa = PBXGroup;
 			children = (
+				F58EB2CF2A5590E800E22DA6 /* README.md */,
 				96454F192A558EBC0040BEBD /* RippleChat */,
 				96454F2A2A558EBE0040BEBD /* RippleChatTests */,
 				96454F342A558EBE0040BEBD /* RippleChatUITests */,
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F58EB2D02A5590E800E22DA6 /* README.md in Resources */,
 				96454F222A558EBD0040BEBD /* Preview Assets.xcassets in Resources */,
 				96454F1F2A558EBD0040BEBD /* Assets.xcassets in Resources */,
 			);
