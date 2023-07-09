@@ -15,6 +15,7 @@
 		96454F362A558EBE0040BEBD /* RippleChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96454F352A558EBE0040BEBD /* RippleChatUITests.swift */; };
 		96454F382A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96454F372A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift */; };
 		96454F452A5593900040BEBD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96454F442A5593900040BEBD /* .gitignore */; };
+		F581F59B2A5AE72F0081C383 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */; };
 		F5847B622A599BF4009E28D4 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B612A599BF4009E28D4 /* Body.swift */; };
 		F5847B642A599CC3009E28D4 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B632A599CC3009E28D4 /* LogEntry.swift */; };
 		F5847B662A599EA4009E28D4 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B652A599EA4009E28D4 /* Feed.swift */; };
@@ -51,6 +52,7 @@
 		96454F352A558EBE0040BEBD /* RippleChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleChatUITests.swift; sourceTree = "<group>"; };
 		96454F372A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		96454F442A5593900040BEBD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		F5847B612A599BF4009E28D4 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		F5847B632A599CC3009E28D4 /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		F5847B652A599EA4009E28D4 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				96454F1A2A558EBC0040BEBD /* RippleChatApp.swift */,
 				96454F1C2A558EBC0040BEBD /* ContentView.swift */,
+				F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */,
 				96454F1E2A558EBD0040BEBD /* Assets.xcassets */,
 				96454F202A558EBD0040BEBD /* Preview Content */,
 				F5847B612A599BF4009E28D4 /* Body.swift */,
@@ -281,6 +284,7 @@
 				F5847B662A599EA4009E28D4 /* Feed.swift in Sources */,
 				F5847B642A599CC3009E28D4 /* LogEntry.swift in Sources */,
 				F5847B6A2A59AB24009E28D4 /* FeedStore.swift in Sources */,
+				F581F59B2A5AE72F0081C383 /* BluetoothViewModel.swift in Sources */,
 				96454F1D2A558EBC0040BEBD /* ContentView.swift in Sources */,
 				96454F1B2A558EBC0040BEBD /* RippleChatApp.swift in Sources */,
 			);
@@ -441,8 +445,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RippleChat/Preview Content\"";
+				DEVELOPMENT_TEAM = B5S58UWR64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow bluetooth for discovering peripherals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -469,8 +476,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RippleChat/Preview Content\"";
+				DEVELOPMENT_TEAM = B5S58UWR64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow bluetooth for discovering peripherals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

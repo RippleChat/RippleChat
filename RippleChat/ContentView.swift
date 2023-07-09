@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreBluetooth
 
 struct ContentView: View {
+    @ObservedObject private var bluetoothViewModel = BluetoothViewModel()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +19,12 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        NavigationView {
+            List(bluetoothViewModel.peripheralNames, id: \.self) { peripheral in
+                Text(peripheral)
+            }
+            .navigationTitle("Peripherals")
+        }
     }
 }
 
