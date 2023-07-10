@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct RippleChatApp: App {
-    @State private var currentView: CurrentView = CurrentView.feeds
+    //@State private var currentView: CurrentView = CurrentView.feeds
     
     var body: some Scene {
         WindowGroup {

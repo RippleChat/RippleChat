@@ -9,11 +9,11 @@ import Foundation
 
 struct Body: Codable {
     
-    let tag: Apps
+    let tag: String
     let value: String
     
     init(tag: Apps = Apps.txt, value: String = "") {
-        self.tag = tag
+        self.tag = tag.description
         self.value = value
     }
 }
@@ -21,4 +21,11 @@ struct Body: Codable {
 enum Apps: Codable {
     case nam
     case txt
+    
+    var description : String {
+      switch self {
+      case .nam: return "nam"
+      case .txt: return "txt"
+      }
+    }
 }

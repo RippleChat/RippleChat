@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeedListView: View {
-   
+    @State var feeds: [Feed]
     
     var body: some View {
         Text("FeedListView")
@@ -17,6 +17,6 @@ struct FeedListView: View {
 
 struct FeedListView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedListView()
+        FeedListView(feeds: [])
     }
 }

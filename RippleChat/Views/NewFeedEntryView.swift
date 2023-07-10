@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct NewFeedEntryView: View {
-    @State private var name: String = "Alice"
+    @State private var newEntry: String = ""
 
     var body: some View {
         VStack(alignment: .leading) {
-            TextField("Enter your name", text: $name)
-            Text("Hello, \(name)!")
+            HStack {
+                TextField("Enter your new feed message:", text: $newEntry)
+                Button(action: {}) {
+                    Text("Send")
+                }
+            }
+            Text("New entry: \(newEntry)")
         }
+        .padding()
     }
 }
 

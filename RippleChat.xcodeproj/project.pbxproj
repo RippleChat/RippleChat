@@ -131,7 +131,6 @@
 				F5847B652A599EA4009E28D4 /* Feed.swift */,
 				F5847B692A59AB24009E28D4 /* FeedStore.swift */,
 				96BD330D2A5C254B007A6E53 /* TextApp.swift */,
-				96BD330F2A5C27B0007A6E53 /* NewFeedEntryView.swift */,
 			);
 			path = RippleChat;
 			sourceTree = "<group>";
@@ -164,6 +163,7 @@
 		96BD33112A5C3FFC007A6E53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96BD330F2A5C27B0007A6E53 /* NewFeedEntryView.swift */,
 				96BD33122A5C400B007A6E53 /* FeedListView.swift */,
 				96BD33152A5C403C007A6E53 /* PeeringView.swift */,
 				96BD33172A5C404F007A6E53 /* FriendsListView.swift */,

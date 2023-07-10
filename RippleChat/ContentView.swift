@@ -21,7 +21,6 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
-            Spacer()
             Button("Save Feed") {
                 Task {
                     do {
@@ -36,12 +35,14 @@ struct ContentView: View {
             }
         }
         .padding()
-        NavigationView {
-            List(bluetoothViewModel.peripheralNames, id: \.self) { peripheral in
-                Text(peripheral)
-            }
-            .navigationTitle("Peripherals")
-        }
+        Spacer()
+        NewFeedEntryView()
+//        NavigationView {
+//            List(bluetoothViewModel.peripheralNames, id: \.self) { peripheral in
+//                Text(peripheral)
+//            }
+//            .navigationTitle("Peripherals")
+//        }
         
        
     }
