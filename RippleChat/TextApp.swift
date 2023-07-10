@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TextApp {
+struct TextApp: Codable {
     
-    let t = Date()
-    let p: String
+    let t: Date
+    let p: String?
     
 }

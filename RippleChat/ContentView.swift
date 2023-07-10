@@ -11,6 +11,7 @@ import CoreBluetooth
 struct ContentView: View {
     @ObservedObject private var bluetoothViewModel = BluetoothViewModel()
     @StateObject private var store = FeedStore(feed: Feed.sampleFeed)
+    private var feedStores = [FeedStore(feed: Feed.sampleFeed), FeedStore(feed: Feed.sampleFeed2)]
     
     var body: some View {
         VStack {
@@ -22,7 +23,10 @@ struct ContentView: View {
             Button("Save Feed") {
                 Task {
                     do {
-                        try await store.save(feed: Feed.sampleFeed)
+                        // try await store.save(feed: Feed.sampleFeed)
+                        for feed in feedStores {
+                            try await feed.save(feed: feed.feed)
+                        }
                     } catch {
                         fatalError(error.localizedDescription)
                     }
@@ -36,6 +40,13 @@ struct ContentView: View {
             }
             .navigationTitle("Peripherals")
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button("Peers") {}
+                
+            }
+        }
+       
     }
 }
 
@@ -43,4 +54,11 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+enum CurrentView {
+    case peers
+    case feeds
+    case friends
+    case settings
 }

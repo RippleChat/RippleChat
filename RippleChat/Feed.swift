@@ -23,11 +23,20 @@ extension Feed {
     
     static let sampleData: [LogEntry] =
     [
-        LogEntry(feedid: "BOB", sequenceNumber: 1, body: Body(tag: "nam", value: "Bob")),
-        LogEntry(feedid: "BOB", sequenceNumber: 2, body: Body(tag: "txt", value: "My first post!")),
-        LogEntry(feedid: "BOB", sequenceNumber: 3, body: Body(tag: "txt", value: "Welcome Alice"))
+        LogEntry(feedid: "BOB", sequenceNumber: 1, body: Body(tag: Apps.nam, value: "Bob")),
+        LogEntry(feedid: "BOB", sequenceNumber: 2, body: Body(tag: Apps.txt, value: "My first post!")),
+        LogEntry(feedid: "BOB", sequenceNumber: 3, body: Body(tag: Apps.txt, value: "Welcome Alice"))
+    ]
+    
+    static let sampleData2: [LogEntry] =
+    [
+        LogEntry(feedid: "ALI", sequenceNumber: 1, body: Body(tag: Apps.nam, value: "Alice")),
+        LogEntry(feedid: "ALI", sequenceNumber: 2, body: Body(tag: Apps.txt, value: "Alice' first post!")),
+        LogEntry(feedid: "ALI", sequenceNumber: 3, body: Body(tag: Apps.txt, value: "Welcome Bob")),
+        LogEntry(feedid: "ALI", sequenceNumber: 4, body: Body(tag: Apps.txt, value: "Whaddup DAWG"))
     ]
     
     static let sampleFeed: Feed = Feed(feedID: "BOB", feed: sampleData)
+    static let sampleFeed2: Feed = Feed(feedID: "ALI", feed: sampleData2)
     
 }

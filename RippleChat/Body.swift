@@ -9,11 +9,16 @@ import Foundation
 
 struct Body: Codable {
     
-    let tag: String
+    let tag: Apps
     let value: String
     
-    init(tag: String, value: String) {
+    init(tag: Apps = Apps.txt, value: String = "") {
         self.tag = tag
         self.value = value
     }
+}
+
+enum Apps: Codable {
+    case nam
+    case txt
 }
