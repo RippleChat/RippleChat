@@ -15,6 +15,8 @@
 		96454F362A558EBE0040BEBD /* RippleChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96454F352A558EBE0040BEBD /* RippleChatUITests.swift */; };
 		96454F382A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96454F372A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift */; };
 		96454F452A5593900040BEBD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96454F442A5593900040BEBD /* .gitignore */; };
+		96BD330E2A5C254B007A6E53 /* TextApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD330D2A5C254B007A6E53 /* TextApp.swift */; };
+		96BD33102A5C27B0007A6E53 /* NewFeedEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD330F2A5C27B0007A6E53 /* NewFeedEntryView.swift */; };
 		F581F59B2A5AE72F0081C383 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */; };
 		F5847B622A599BF4009E28D4 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B612A599BF4009E28D4 /* Body.swift */; };
 		F5847B642A599CC3009E28D4 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B632A599CC3009E28D4 /* LogEntry.swift */; };
@@ -52,6 +54,8 @@
 		96454F352A558EBE0040BEBD /* RippleChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleChatUITests.swift; sourceTree = "<group>"; };
 		96454F372A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		96454F442A5593900040BEBD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		96BD330D2A5C254B007A6E53 /* TextApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextApp.swift; sourceTree = "<group>"; };
+		96BD330F2A5C27B0007A6E53 /* NewFeedEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedEntryView.swift; sourceTree = "<group>"; };
 		F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		F5847B612A599BF4009E28D4 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		F5847B632A599CC3009E28D4 /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				F5847B632A599CC3009E28D4 /* LogEntry.swift */,
 				F5847B652A599EA4009E28D4 /* Feed.swift */,
 				F5847B692A59AB24009E28D4 /* FeedStore.swift */,
+				96BD330D2A5C254B007A6E53 /* TextApp.swift */,
+				96BD330F2A5C27B0007A6E53 /* NewFeedEntryView.swift */,
 			);
 			path = RippleChat;
 			sourceTree = "<group>";
@@ -283,9 +289,11 @@
 				F5847B622A599BF4009E28D4 /* Body.swift in Sources */,
 				F5847B662A599EA4009E28D4 /* Feed.swift in Sources */,
 				F5847B642A599CC3009E28D4 /* LogEntry.swift in Sources */,
+				96BD33102A5C27B0007A6E53 /* NewFeedEntryView.swift in Sources */,
 				F5847B6A2A59AB24009E28D4 /* FeedStore.swift in Sources */,
 				F581F59B2A5AE72F0081C383 /* BluetoothViewModel.swift in Sources */,
 				96454F1D2A558EBC0040BEBD /* ContentView.swift in Sources */,
+				96BD330E2A5C254B007A6E53 /* TextApp.swift in Sources */,
 				96454F1B2A558EBC0040BEBD /* RippleChatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
