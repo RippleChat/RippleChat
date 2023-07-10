@@ -10,6 +10,7 @@ import CoreBluetooth
 
 struct ContentView: View {
     @ObservedObject private var bluetoothViewModel = BluetoothViewModel()
+    @StateObject private var store = FeedStore(feed: Feed.sampleFeed)
     
     var body: some View {
         VStack {
@@ -17,6 +18,16 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            Spacer()
+            Button("Save Feed") {
+                Task {
+                    do {
+                        try await store.save(feed: Feed.sampleFeed)
+                    } catch {
+                        fatalError(error.localizedDescription)
+                    }
+                }
+            }
         }
         .padding()
         NavigationView {

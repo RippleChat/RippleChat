@@ -10,33 +10,37 @@ import SwiftUI
 @MainActor
 class FeedStore: ObservableObject {
     
-    @Published var feed: [LogEntry] = []
+    @Published var feed: Feed
     
-    private static func fileURL() throws -> URL {
+    init(feed: Feed) {
+        self.feed = feed
+    }
+    
+    private func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
                                     in: .userDomainMask,
                                     appropriateFor: nil,
                                     create: false)
-        .appendingPathComponent("feed.data")
+        .appendingPathComponent("\(feed.feedID).json")
     }
     
     func load() async throws {
-        let task = Task<[LogEntry], Error> {
-            let fileURL = try Self.fileURL()
+        let task = Task<Feed, Error> {
+            let fileURL = try self.fileURL()
             guard let data = try? Data(contentsOf: fileURL) else {
-                return []
+                return Feed()
             }
-            let logEntries = try JSONDecoder().decode([LogEntry].self, from: data)
-            return logEntries
+            let feed = try JSONDecoder().decode(Feed.self, from: data)
+            return feed
         }
         let feed = try await task.value
         self.feed = feed
     }
     
-    func save(feed: [LogEntry]) async throws {
+    func save(feed: Feed) async throws {
         let task = Task {
             let data = try JSONEncoder().encode(feed)
-            let outfile = try Self.fileURL()
+            let outfile = try self.fileURL()
             try data.write(to: outfile)
         }
         _ = try await task.value

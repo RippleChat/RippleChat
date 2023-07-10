@@ -9,7 +9,13 @@ import Foundation
 
 struct Feed: Codable {
     
+    let feedID: String
     let feed: [LogEntry]
+    
+    init(feedID: String = "", feed: [LogEntry] = []) {
+        self.feedID = feedID
+        self.feed = feed
+    }
     
 }
 
@@ -21,5 +27,7 @@ extension Feed {
         LogEntry(feedid: "BOB", sequenceNumber: 2, body: Body(tag: "txt", value: "My first post!")),
         LogEntry(feedid: "BOB", sequenceNumber: 3, body: Body(tag: "txt", value: "Welcome Alice"))
     ]
+    
+    static let sampleFeed: Feed = Feed(feedID: "BOB", feed: sampleData)
     
 }
