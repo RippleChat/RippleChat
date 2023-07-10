@@ -12,6 +12,8 @@ struct ContentView: View {
     @ObservedObject private var bluetoothViewModel = BluetoothViewModel()
     @StateObject private var store = FeedStore(feed: Feed.sampleFeed)
     private var feedStores = [FeedStore(feed: Feed.sampleFeed), FeedStore(feed: Feed.sampleFeed2)]
+    //@Binding var currentView: CurrentView
+    
     
     var body: some View {
         VStack {
@@ -40,25 +42,16 @@ struct ContentView: View {
             }
             .navigationTitle("Peripherals")
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
-                Button("Peers") {}
-                
-            }
-        }
+        
        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    public static var cv = CurrentView.feeds
     static var previews: some View {
         ContentView()
     }
 }
 
-enum CurrentView {
-    case peers
-    case feeds
-    case friends
-    case settings
-}
+

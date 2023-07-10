@@ -17,6 +17,9 @@
 		96454F452A5593900040BEBD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96454F442A5593900040BEBD /* .gitignore */; };
 		96BD330E2A5C254B007A6E53 /* TextApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD330D2A5C254B007A6E53 /* TextApp.swift */; };
 		96BD33102A5C27B0007A6E53 /* NewFeedEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD330F2A5C27B0007A6E53 /* NewFeedEntryView.swift */; };
+		96BD33132A5C400B007A6E53 /* FeedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD33122A5C400B007A6E53 /* FeedListView.swift */; };
+		96BD33162A5C403C007A6E53 /* PeeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD33152A5C403C007A6E53 /* PeeringView.swift */; };
+		96BD33182A5C404F007A6E53 /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD33172A5C404F007A6E53 /* FriendsListView.swift */; };
 		F581F59B2A5AE72F0081C383 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */; };
 		F5847B622A599BF4009E28D4 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B612A599BF4009E28D4 /* Body.swift */; };
 		F5847B642A599CC3009E28D4 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B632A599CC3009E28D4 /* LogEntry.swift */; };
@@ -56,6 +59,9 @@
 		96454F442A5593900040BEBD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		96BD330D2A5C254B007A6E53 /* TextApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextApp.swift; sourceTree = "<group>"; };
 		96BD330F2A5C27B0007A6E53 /* NewFeedEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedEntryView.swift; sourceTree = "<group>"; };
+		96BD33122A5C400B007A6E53 /* FeedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListView.swift; sourceTree = "<group>"; };
+		96BD33152A5C403C007A6E53 /* PeeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeeringView.swift; sourceTree = "<group>"; };
+		96BD33172A5C404F007A6E53 /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
 		F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		F5847B612A599BF4009E28D4 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		F5847B632A599CC3009E28D4 /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			children = (
 				96454F1A2A558EBC0040BEBD /* RippleChatApp.swift */,
 				96454F1C2A558EBC0040BEBD /* ContentView.swift */,
+				96BD33112A5C3FFC007A6E53 /* Views */,
 				F581F59A2A5AE72F0081C383 /* BluetoothViewModel.swift */,
 				96454F1E2A558EBD0040BEBD /* Assets.xcassets */,
 				96454F202A558EBD0040BEBD /* Preview Content */,
@@ -152,6 +159,16 @@
 				96454F372A558EBE0040BEBD /* RippleChatUITestsLaunchTests.swift */,
 			);
 			path = RippleChatUITests;
+			sourceTree = "<group>";
+		};
+		96BD33112A5C3FFC007A6E53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96BD33122A5C400B007A6E53 /* FeedListView.swift */,
+				96BD33152A5C403C007A6E53 /* PeeringView.swift */,
+				96BD33172A5C404F007A6E53 /* FriendsListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5847B622A599BF4009E28D4 /* Body.swift in Sources */,
+				96BD33162A5C403C007A6E53 /* PeeringView.swift in Sources */,
+				96BD33182A5C404F007A6E53 /* FriendsListView.swift in Sources */,
 				F5847B662A599EA4009E28D4 /* Feed.swift in Sources */,
+				96BD33132A5C400B007A6E53 /* FeedListView.swift in Sources */,
 				F5847B642A599CC3009E28D4 /* LogEntry.swift in Sources */,
 				96BD33102A5C27B0007A6E53 /* NewFeedEntryView.swift in Sources */,
 				F5847B6A2A59AB24009E28D4 /* FeedStore.swift in Sources */,
