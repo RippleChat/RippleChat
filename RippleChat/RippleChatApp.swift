@@ -16,8 +16,26 @@ struct RippleChatApp: App {
             ContentView()
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomBar) {
-                        Button("Peers") {}
-                        
+                        Button(action: {}) {
+                            VStack {
+                                Label("Discovery", systemImage: "dot.radiowaves.left.and.right")
+                                Text("Discovery")
+                            }
+                        }
+                        Spacer()
+                        Button(action: {}) {
+                            VStack {
+                                Label("Discovery", systemImage: "person.2")
+                                Text("Feeds")
+                            }
+                        }
+                        Spacer()
+                        Button(action: {}) {
+                            VStack {
+                                Label("Discovery", systemImage: "gear")
+                                Text("Settings")
+                            }
+                        }
                     }
                 }
         }
