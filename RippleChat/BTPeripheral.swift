@@ -21,6 +21,8 @@ class BluetoothPeripheral: NSObject, ObservableObject {
     }
 }
 
+// TODO: Change variable names, etc...
+
 extension BluetoothPeripheral: CBPeripheralManagerDelegate {
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         switch peripheral.state {
@@ -44,12 +46,7 @@ extension BluetoothPeripheral: CBPeripheralManagerDelegate {
     
     func addServices() {
         
-        let value = Feed.sampleFeed
-        // let valueData = value(using: .utf8)
-        
-        // 1. Create instance of CBMutableCharcateristic
-//        let myCharacteristic1 = CBMutableCharacteristic(type: CBUUID(nsuuid: UUID()), properties: [.notify, .write, .read], value: nil, permissions: [.readable, .writeable])
-        let myCharacteristic = CBMutableCharacteristic(type: BLE_CHARACTERISTIC_UUID_RX, properties: [.read], value: nil, permissions: [.readable])
+        let myCharacteristic = CBMutableCharacteristic(type: BLE_CHARACTERISTIC_UUID_RX, properties: [.read, .write, .notify], value: nil, permissions: [.readable])
        
         // 2. Create instance of CBMutableService
         let myService = CBMutableService(type: BLE_SERVICE_UUID, primary: true)
@@ -65,4 +62,23 @@ extension BluetoothPeripheral: CBPeripheralManagerDelegate {
         print("Started Advertising")
        
     }
+    
+//    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
+//        
+//        messageLabel.text = "Data getting Read"
+//        readValueLabel.text = value
+//
+//        // Perform your additional operations here
+//
+//    }
+//
+//    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
+//
+//        messageLabel.text = "Writing Data"
+//
+//        if let value = requests.first?.value {
+//           writeValueLabel.text = value.hexEncodedString()
+//            //Perform here your additional operations on the data you get
+//        }
+//    }
 }

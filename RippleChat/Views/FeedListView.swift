@@ -11,6 +11,7 @@ struct FeedListView: View {
     @State var feeds: [Feed]
     @StateObject var store = FeedStore(feed: Feed.sampleFeed)
     var feedStores = [FeedStore(feed: Feed.sampleFeed), FeedStore(feed: Feed.sampleFeed2)]
+    @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
         Text("FeedListView")
@@ -29,6 +30,8 @@ struct FeedListView: View {
                 }
             }
         }
+        Spacer()
+        NewFeedEntryView()
     }
 }
 

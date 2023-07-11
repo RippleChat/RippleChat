@@ -10,16 +10,23 @@ import CoreBluetooth
 
 struct ContentView: View {
     @State var currentView = 0
-    
+    @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
         VStack {
             switch self.currentView {
-            case 0: PeeringView()
-            case 1: FeedListView(feeds: [])
-            case 2: SettingsView()
+            case 0:
+                PeeringView()
+                    .environmentObject(dataStore)
+            case 1:
+                FeedListView(feeds: [])
+                    .environmentObject(dataStore)
+            case 2:
+                SettingsView()
+                    .environmentObject(dataStore)
             default:
                 FeedListView(feeds: [])
+                    .environmentObject(dataStore)
             }
         }
         .padding()
@@ -60,6 +67,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(DataStore())
     }
 }
 

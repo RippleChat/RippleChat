@@ -10,6 +10,7 @@ import SwiftUI
 struct PeeringView: View {
     @ObservedObject private var bluetoothController = BluetoothController()
     @ObservedObject private var bluetoothPeripheral = BluetoothPeripheral()
+    @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
         Text("Peering View")

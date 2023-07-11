@@ -27,6 +27,8 @@
 		F58EB2D02A5590E800E22DA6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F58EB2CF2A5590E800E22DA6 /* README.md */; };
 		F5A4B1212A5D4D1F00F5AE01 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1202A5D4D1F00F5AE01 /* SettingsView.swift */; };
 		F5A4B1232A5D5F8B00F5AE01 /* BTPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1222A5D5F8B00F5AE01 /* BTPeripheral.swift */; };
+		F5A4B1252A5D7A8D00F5AE01 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1242A5D7A8D00F5AE01 /* DataStore.swift */; };
+		F5A4B1272A5D861E00F5AE01 /* SettingsEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1262A5D861E00F5AE01 /* SettingsEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		F58EB2CF2A5590E800E22DA6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F5A4B1202A5D4D1F00F5AE01 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F5A4B1222A5D5F8B00F5AE01 /* BTPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTPeripheral.swift; sourceTree = "<group>"; };
+		F5A4B1242A5D7A8D00F5AE01 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		F5A4B1262A5D861E00F5AE01 /* SettingsEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				F5847B692A59AB24009E28D4 /* FeedStore.swift */,
 				96BD330D2A5C254B007A6E53 /* TextApp.swift */,
 				F5A4B1222A5D5F8B00F5AE01 /* BTPeripheral.swift */,
+				F5A4B1242A5D7A8D00F5AE01 /* DataStore.swift */,
 			);
 			path = RippleChat;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				96BD33122A5C400B007A6E53 /* FeedListView.swift */,
 				96BD33152A5C403C007A6E53 /* PeeringView.swift */,
 				F5A4B1202A5D4D1F00F5AE01 /* SettingsView.swift */,
+				F5A4B1262A5D861E00F5AE01 /* SettingsEditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,7 +319,9 @@
 				F5847B642A599CC3009E28D4 /* LogEntry.swift in Sources */,
 				96BD33102A5C27B0007A6E53 /* NewFeedEntryView.swift in Sources */,
 				F5A4B1232A5D5F8B00F5AE01 /* BTPeripheral.swift in Sources */,
+				F5A4B1252A5D7A8D00F5AE01 /* DataStore.swift in Sources */,
 				F5847B6A2A59AB24009E28D4 /* FeedStore.swift in Sources */,
+				F5A4B1272A5D861E00F5AE01 /* SettingsEditView.swift in Sources */,
 				F581F59B2A5AE72F0081C383 /* BluetoothController.swift in Sources */,
 				96454F1D2A558EBC0040BEBD /* ContentView.swift in Sources */,
 				F5A4B1212A5D4D1F00F5AE01 /* SettingsView.swift in Sources */,

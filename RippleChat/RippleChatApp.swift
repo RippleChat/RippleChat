@@ -13,6 +13,7 @@ struct RippleChatApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(DataStore())
         }
     }
 }
