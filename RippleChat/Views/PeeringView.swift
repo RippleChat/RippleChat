@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct PeeringView: View {
-    @ObservedObject private var bluetoothViewModel = BluetoothViewModel()
+    @ObservedObject private var bluetoothController = BluetoothController()
+    @ObservedObject private var bluetoothPeripheral = BluetoothPeripheral()
     
     var body: some View {
         Text("Peering View")
         NavigationView {
-            List(bluetoothViewModel.peripheralNames, id: \.self) { peripheral in
+            List(bluetoothController.peripheralNames, id: \.self) { peripheral in
                 Text(peripheral)
             }
             .navigationTitle("Peripherals")

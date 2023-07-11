@@ -1,5 +1,5 @@
 //
-//  BluetoothViewModel.swift
+//  BluetoothController.swift
 //  RippleChat
 //
 //  Created by Severin Memmishofer on 09.07.23.
@@ -8,10 +8,13 @@
 import SwiftUI
 import CoreBluetooth
 
-class BluetoothViewModel: NSObject, ObservableObject {
+class BluetoothController: NSObject, ObservableObject {
     private var centralManager: CBCentralManager?
     private var peripherals: [CBPeripheral] = []
     @Published var peripheralNames: [String] = []
+    
+    let BLE_SERVICE_UUID = CBUUID(string: "6e400001-7646-4b5b-9a50-71becce51558")
+    let BLE_CHARACTERISTIC_UUID_RX = CBUUID(string: "6e400002-7646-4b5b-9a50-71becce51558")
     
     override init() {
         super.init()
@@ -19,10 +22,10 @@ class BluetoothViewModel: NSObject, ObservableObject {
     }
 }
 
-extension BluetoothViewModel: CBCentralManagerDelegate {
+extension BluetoothController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
-            self.centralManager?.scanForPeripherals(withServices: nil)
+            self.centralManager?.scanForPeripherals(withServices: [BLE_SERVICE_UUID])
         }
     }
     
