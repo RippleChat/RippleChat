@@ -29,16 +29,12 @@ struct ContentView: View {
                 FeedListView(feeds: [])
                     .environmentObject(dataStore)
             }
-        }
-        .padding()
-        .toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
+            HStack {
                 Button(action: {
                     self.currentView = 0
                 }) {
                     VStack {
                         Label("Discovery", systemImage: "dot.radiowaves.left.and.right")
-                        Text("Discovery")
                     }
                 }
                 Spacer()
@@ -47,7 +43,6 @@ struct ContentView: View {
                 }) {
                     VStack {
                         Label("Feeds", systemImage: "person.2")
-                        Text("Feeds")
                     }
                 }
                 Spacer()
@@ -55,12 +50,14 @@ struct ContentView: View {
                     self.currentView = 2
                 }) {
                     VStack {
-                        Label("Settings", systemImage: "gear")
-                        Text("Settings")
+                        Label("Settings",systemImage: "gear")
                     }
                 }
             }
+            .frame(height: UIScreen.main.bounds.height * 0.05)
         }
+        .padding()
+ 
        
     }
 }
