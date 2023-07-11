@@ -9,47 +9,55 @@ import SwiftUI
 import CoreBluetooth
 
 struct ContentView: View {
-    @ObservedObject private var bluetoothViewModel = BluetoothViewModel()
-    @StateObject private var store = FeedStore(feed: Feed.sampleFeed)
-    private var feedStores = [FeedStore(feed: Feed.sampleFeed), FeedStore(feed: Feed.sampleFeed2)]
-    //@Binding var currentView: CurrentView
+    @State var currentView = 0
     
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            Button("Save Feed") {
-                Task {
-                    do {
-                        // try await store.save(feed: Feed.sampleFeed)
-                        for feed in feedStores {
-                            try await feed.save(feed: feed.feed)
-                        }
-                    } catch {
-                        fatalError(error.localizedDescription)
+            switch self.currentView {
+            case 0: PeeringView()
+            case 1: FeedListView(feeds: [])
+            case 2: SettingsView()
+            default:
+                FeedListView(feeds: [])
+            }
+        }
+        .padding()
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button(action: {
+                    self.currentView = 0
+                }) {
+                    VStack {
+                        Label("Discovery", systemImage: "dot.radiowaves.left.and.right")
+                        Text("Discovery")
+                    }
+                }
+                Spacer()
+                Button(action: {
+                    self.currentView = 1
+                }) {
+                    VStack {
+                        Label("Feeds", systemImage: "person.2")
+                        Text("Feeds")
+                    }
+                }
+                Spacer()
+                Button(action: {
+                    self.currentView = 2
+                }) {
+                    VStack {
+                        Label("Settings", systemImage: "gear")
+                        Text("Settings")
                     }
                 }
             }
         }
-        .padding()
-        Spacer()
-        NewFeedEntryView()
-//        NavigationView {
-//            List(bluetoothViewModel.peripheralNames, id: \.self) { peripheral in
-//                Text(peripheral)
-//            }
-//            .navigationTitle("Peripherals")
-//        }
-        
        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    public static var cv = CurrentView.feeds
     static var previews: some View {
         ContentView()
     }
