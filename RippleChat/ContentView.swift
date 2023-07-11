@@ -10,7 +10,7 @@ import CoreBluetooth
 
 struct ContentView: View {
     @State var currentView = 0
-    @EnvironmentObject var dataStore: DataStore
+    @StateObject var dataStore = DataStore()
     
     var body: some View {
         VStack {
@@ -24,6 +24,7 @@ struct ContentView: View {
             case 2:
                 SettingsView()
                     .environmentObject(dataStore)
+                    .navigationTitle("Settings")
             default:
                 FeedListView(feeds: [])
                     .environmentObject(dataStore)

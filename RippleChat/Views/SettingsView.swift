@@ -8,22 +8,72 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var newEntry: String = ""
+    
     @EnvironmentObject var dataStore: DataStore
     
-    var body: some View {
-        Section(header: Text("Personal Feed ID")) {
-            Text("Your FeedID is: \(dataStore.personalID)")
-        }
-        Section(header: Text("Friends")) {
+    @State private var isPresentingEditView = false
 
+    
+    var body: some View {
+        
+     
+            List {
+                HStack {
+                    Spacer()
+                    Button("Edit") {
+                        isPresentingEditView = true
+                    }
+                }
+                Section(header: Text("Personal Feed ID")) {
+                    Label(dataStore.personalID, systemImage: "person.crop.circle")
+                }
+                Section(header: Text("Friends")) {
+                    ForEach(dataStore.friends) { friend in
+                        Label(friend, systemImage: "person")
+                    }
+                }
+            }
+            .navigationTitle("Settings")
+            .sheet(isPresented: $isPresentingEditView) {
+                NavigationStack {
+                    SettingsEditView()
+                        .navigationTitle("Settings")
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction){
+                                Button("Cancel") {
+                                    isPresentingEditView = false
+                                }
+                            }
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") {
+                                    isPresentingEditView = false
+                                }
+                            }
+                        }
+                }
         }
     }
+        
 }
+
 
 struct SettingsView_Previews: PreviewProvider {
+    static var friends = [
+        "BOS",
+        "ALI",
+        "CYN"
+    ]
     static var previews: some View {
         SettingsView()
-            .environmentObject(DataStore(personalID: "BOB"))
+            .environmentObject(DataStore(personalID: "BOB", friends: friends))
+            .navigationTitle("Settings")
     }
 }
+
+extension String: Identifiable {
+    public typealias ID = Int
+    public var id: Int {
+        return hash
+    }
+}
+

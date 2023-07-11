@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct RippleChatApp: App {
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(DataStore())
+             
         }
     }
 }

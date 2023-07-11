@@ -18,4 +18,6 @@ class DataStore: ObservableObject {
         self.friends = friends
         self.feeds = feeds
     }
+    
+    
 }
