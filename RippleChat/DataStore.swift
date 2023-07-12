@@ -54,7 +54,9 @@ class DataStore: ObservableObject {
     func loadPersonalID() async throws {
         let task = Task<String, Error> {
             let fileURL = try self.fileURL(for: "personalID")
-            let data = try Data(contentsOf: fileURL)
+            guard let data = try? Data(contentsOf: fileURL) else {
+                return ""
+            }
             let personalID = try JSONDecoder().decode(String.self, from: data)
             return personalID
         }
@@ -65,7 +67,9 @@ class DataStore: ObservableObject {
     func loadFriends() async throws {
         let task = Task<[String:Int], Error> {
             let fileURL = try self.fileURL(for: "friends")
-            let data = try Data(contentsOf: fileURL)
+            guard let data = try? Data(contentsOf: fileURL) else {
+                return [:]
+            }
             let friends = try JSONDecoder().decode([String:Int].self, from: data)
             return friends
         }
