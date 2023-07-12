@@ -1,2 +1,4 @@
 xcuserdata
 *.xcuserdatad
+.DS_STORE
+SLAppDevel.developerprofile
