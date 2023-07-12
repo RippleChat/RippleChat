@@ -13,7 +13,7 @@ struct LogEntry: Codable {
     let sequenceNumber: Int
     let body: Body
     
-    init(feedid: String, sequenceNumber: Int, body: Body) {
+    init(feedid: String = "", sequenceNumber: Int = 0, body: Body = Body()) {
         self.feedid = feedid
         self.sequenceNumber = sequenceNumber
         self.body = body

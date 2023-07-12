@@ -8,8 +8,9 @@
 import SwiftUI
 
 @MainActor
-class FeedStore: ObservableObject {
+class FeedStore: ObservableObject, Identifiable {
     
+    let id: UUID = UUID()
     @Published var feed: Feed
     
     init(feed: Feed) {

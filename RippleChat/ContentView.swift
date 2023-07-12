@@ -21,14 +21,14 @@ struct ContentView: View {
                 PeeringView()
                     .environmentObject(dataStore)
             case 1:
-                FeedListView(feeds: [])
+                FeedListView()
                     .environmentObject(dataStore)
             case 2:
                 SettingsView()
                     .environmentObject(dataStore)
                     .navigationTitle("Settings")
             default:
-                FeedListView(feeds: [])
+                FeedListView()
                     .environmentObject(dataStore)
             }
             HStack {

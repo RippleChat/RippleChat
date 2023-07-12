@@ -29,6 +29,8 @@
 		F5A4B1232A5D5F8B00F5AE01 /* BTPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1222A5D5F8B00F5AE01 /* BTPeripheral.swift */; };
 		F5A4B1252A5D7A8D00F5AE01 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1242A5D7A8D00F5AE01 /* DataStore.swift */; };
 		F5A4B1272A5D861E00F5AE01 /* SettingsEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1262A5D861E00F5AE01 /* SettingsEditView.swift */; };
+		F5F1419C2A5EFA3600C81B1A /* LogEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F1419B2A5EFA3600C81B1A /* LogEntryView.swift */; };
+		F5F1419E2A5EFA4700C81B1A /* FeedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F1419D2A5EFA4700C81B1A /* FeedCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		F5A4B1222A5D5F8B00F5AE01 /* BTPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTPeripheral.swift; sourceTree = "<group>"; };
 		F5A4B1242A5D7A8D00F5AE01 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		F5A4B1262A5D861E00F5AE01 /* SettingsEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditView.swift; sourceTree = "<group>"; };
+		F5F1419B2A5EFA3600C81B1A /* LogEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryView.swift; sourceTree = "<group>"; };
+		F5F1419D2A5EFA4700C81B1A /* FeedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				96BD33152A5C403C007A6E53 /* PeeringView.swift */,
 				F5A4B1202A5D4D1F00F5AE01 /* SettingsView.swift */,
 				F5A4B1262A5D861E00F5AE01 /* SettingsEditView.swift */,
+				F5F1419B2A5EFA3600C81B1A /* LogEntryView.swift */,
+				F5F1419D2A5EFA4700C81B1A /* FeedCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,8 +326,10 @@
 				96BD33102A5C27B0007A6E53 /* NewFeedEntryView.swift in Sources */,
 				F5A4B1232A5D5F8B00F5AE01 /* BTPeripheral.swift in Sources */,
 				F5A4B1252A5D7A8D00F5AE01 /* DataStore.swift in Sources */,
+				F5F1419C2A5EFA3600C81B1A /* LogEntryView.swift in Sources */,
 				F5847B6A2A59AB24009E28D4 /* FeedStore.swift in Sources */,
 				F5A4B1272A5D861E00F5AE01 /* SettingsEditView.swift in Sources */,
+				F5F1419E2A5EFA4700C81B1A /* FeedCardView.swift in Sources */,
 				F581F59B2A5AE72F0081C383 /* BluetoothController.swift in Sources */,
 				96454F1D2A558EBC0040BEBD /* ContentView.swift in Sources */,
 				F5A4B1212A5D4D1F00F5AE01 /* SettingsView.swift in Sources */,

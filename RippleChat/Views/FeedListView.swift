@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct FeedListView: View {
-    @State var feeds: [Feed]
-    @StateObject var store = FeedStore(feed: Feed.sampleFeed)
-    var feedStores = [FeedStore(feed: Feed.sampleFeed), FeedStore(feed: Feed.sampleFeed2)]
     @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
@@ -20,23 +17,21 @@ struct FeedListView: View {
             .foregroundColor(.accentColor)
         Text("Hello, world!")
         Button("Save Feed") {
-            Task {
-                do {
-                    try await DataStore.sampleDataStore.saveFriends()
-                    try await DataStore.sampleDataStore.savePersonalID()
-                    try await DataStore.sampleDataStore.saveFeedStores()
-                } catch {
-                    fatalError(error.localizedDescription)
+        }
+        NavigationStack {
+            List(dataStore.feedStores) { feedStore in
+                NavigationLink(destination: Text(feedStore.feed.feedID)) {
+                    FeedCardView(feed: feedStore.feed)
                 }
             }
         }
-        Spacer()
         NewFeedEntryView()
     }
 }
 
 struct FeedListView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedListView(feeds: [])
+        FeedListView()
+            .environmentObject(DataStore.sampleDataStore)
     }
 }
