@@ -16,42 +16,43 @@ struct SettingsView: View {
     
     var body: some View {
         
-        
-        List {
-            Section(header: Text("Personal Feed ID")) {
-                Label(dataStore.personalID, systemImage: "person.crop.circle")
-            }
-            Section(header: Text("Friends")) {
-                ForEach(dataStore.friends) { friend in
-                    Label(friend, systemImage: "person")
+        NavigationView {
+            List {
+                Section(header: Text("Personal Feed ID")) {
+                    Label(dataStore.personalID, systemImage: "person.crop.circle")
                 }
-            }
-        }
-        .navigationTitle("Settings")
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                Button("Edit") {
-                    isPresentingEditView = true
-                }
-            }
-        }
-        .sheet(isPresented: $isPresentingEditView) {
-            NavigationStack {
-                SettingsEditView()
-                    .navigationTitle("Settings")
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction){
-                            Button("Cancel") {
-                                isPresentingEditView = false
-                            }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Done") {
-                                isPresentingEditView = false
-                            }
-                        }
+                Section(header: Text("Friends")) {
+                    ForEach(dataStore.friends) { friend in
+                        Label(friend, systemImage: "person")
                     }
+                }
             }
+            .navigationTitle("Settings")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Edit") {
+                        isPresentingEditView = true
+                    }
+                }
+            }
+            .sheet(isPresented: $isPresentingEditView) {
+                NavigationStack {
+                    SettingsEditView()
+                        .navigationTitle("Settings")
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction){
+                                Button("Cancel") {
+                                    isPresentingEditView = false
+                                }
+                            }
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") {
+                                    isPresentingEditView = false
+                                }
+                            }
+                        }
+                }
+        }
         }
     }
     
