@@ -16,7 +16,7 @@ struct SettingsView: View {
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             List {
                 Section(header: Text("Personal Feed ID")) {
                     Label(dataStore.personalID, systemImage: "person.crop.circle")
@@ -28,6 +28,7 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
+            .navigationViewStyle(StackNavigationViewStyle())
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Edit") {

@@ -14,11 +14,12 @@ struct PeeringView: View {
     
     var body: some View {
         Text("Peering View")
-        NavigationView {
+        NavigationStack {
             List(bluetoothController.peripheralNames, id: \.self) { peripheral in
                 Text(peripheral)
             }
             .navigationTitle("Peripherals")
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
