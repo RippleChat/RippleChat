@@ -30,11 +30,13 @@ struct ContentView: View {
                     .environmentObject(dataStore)
             }
             HStack {
+                Spacer()
                 Button(action: {
                     self.currentView = 0
                 }) {
                     VStack {
-                        Label("Discovery", systemImage: "dot.radiowaves.left.and.right")
+                        Image(systemName: "dot.radiowaves.left.and.right")
+                        Text("Discovery")
                     }
                 }
                 Spacer()
@@ -42,7 +44,8 @@ struct ContentView: View {
                     self.currentView = 1
                 }) {
                     VStack {
-                        Label("Feeds", systemImage: "person.2")
+                        Image(systemName: "person.2")
+                        Text("Feeds")
                     }
                 }
                 Spacer()
@@ -50,13 +53,14 @@ struct ContentView: View {
                     self.currentView = 2
                 }) {
                     VStack {
-                        Label("Settings",systemImage: "gear")
+                        Image(systemName: "gear")
+                        Text("Settings")
                     }
                 }
+                Spacer()
             }
             .frame(height: UIScreen.main.bounds.height * 0.05)
         }
-        .padding()
  
        
     }
