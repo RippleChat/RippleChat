@@ -10,7 +10,9 @@ import CoreBluetooth
 
 struct ContentView: View {
     @State var currentView = 0
-    @StateObject var dataStore = DataStore()
+    @EnvironmentObject var dataStore: DataStore
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: ()->Void
     
     var body: some View {
         VStack {
@@ -61,14 +63,16 @@ struct ContentView: View {
             }
             .frame(height: UIScreen.main.bounds.height * 0.05)
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { saveAction() }
+        }
  
-       
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(saveAction: {})
             .environmentObject(DataStore())
     }
 }

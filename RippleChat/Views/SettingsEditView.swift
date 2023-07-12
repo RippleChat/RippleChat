@@ -20,18 +20,24 @@ struct SettingsEditView: View {
                 }
             }
             Section(header: Text("Friends")) {
-                ForEach(dataStore.friends) { friend in
-                    Label(friend, systemImage: "person")
+                ForEach(dataStore.friends.keys.sorted(), id: \.self) { friend in
+                    if let seq = dataStore.friends[friend] {
+                        Label("\(friend) - SEQ: \(seq)", systemImage: "person")
+                    }
                 }
-                .onDelete {indices in
-                    dataStore.friends.remove(atOffsets: indices)
+                .onDelete { indexSet in do {
+                    indexSet.forEach { index in
+                        let key = dataStore.friends.keys.sorted()[index]
+                        dataStore.friends.removeValue(forKey: key)
+                    }
+                    
+                }
                 }
                 HStack {
                     TextField("New Feed", text: $newFeedID)
                     Button(action: {
                         withAnimation {
-                            let feedid = newFeedID
-                            dataStore.friends.append(feedid)
+                            dataStore.friends[newFeedID] = 0
                             newFeedID = ""
                         }
                     }) {

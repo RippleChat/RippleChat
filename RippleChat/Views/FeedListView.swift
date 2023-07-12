@@ -22,9 +22,9 @@ struct FeedListView: View {
         Button("Save Feed") {
             Task {
                 do {
-                    for feed in feedStores {
-                        try await feed.save(feed: feed.feed)
-                    }
+                    try await DataStore.sampleDataStore.saveFriends()
+                    try await DataStore.sampleDataStore.savePersonalID()
+                    try await DataStore.sampleDataStore.saveFeedStores()
                 } catch {
                     fatalError(error.localizedDescription)
                 }

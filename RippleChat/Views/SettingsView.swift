@@ -22,8 +22,10 @@ struct SettingsView: View {
                     Label(dataStore.personalID, systemImage: "person.crop.circle")
                 }
                 Section(header: Text("Friends")) {
-                    ForEach(dataStore.friends) { friend in
-                        Label(friend, systemImage: "person")
+                    ForEach(dataStore.friends.keys.sorted(), id: \.self) { friend in
+                        if let seq = dataStore.friends[friend] {
+                            Label("\(friend) - SEQ: \(seq)", systemImage: "person")
+                        }
                     }
                 }
             }
@@ -62,9 +64,9 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var friends = [
-        "BOS",
-        "ALI",
-        "CYN"
+        "BOS":1,
+        "ALI":2,
+        "CYN":3
     ]
     static var previews: some View {
         SettingsView()
