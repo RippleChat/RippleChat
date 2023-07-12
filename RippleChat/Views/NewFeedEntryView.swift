@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewFeedEntryView: View {
     @State private var newEntry: String = ""
-
+    @EnvironmentObject var dataStore: DataStore
     var body: some View {
         VStack(alignment: .leading) {
             HStack {

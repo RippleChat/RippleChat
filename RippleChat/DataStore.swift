@@ -11,14 +11,19 @@ import Foundation
 @MainActor
 class DataStore: ObservableObject {
     @Published var personalID: String
+    @Published var personalFeed: Feed
     @Published var friends: [String:Int]
     @Published var feedStores: [FeedStore]
     
-    init(personalID: String = "", friends: [String:Int] = [:], feedStores: [FeedStore] = []) {
+    
+    init(personalID: String = "", personalFeed: Feed = Feed(), friends: [String:Int] = [:], feedStores: [FeedStore] = []) {
         self.personalID = personalID
         self.friends = friends
         self.feedStores = feedStores
+        self.personalFeed = personalFeed
     }
+    
+    
     
     private func fileURL(for filename: String) throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
@@ -88,6 +93,28 @@ class DataStore: ObservableObject {
             }
         }
         _ = try await task.value
+    }
+    
+    func savePersonalFeed() async throws {
+        let task = Task {
+            let data = try JSONEncoder().encode(personalFeed)
+            let outfile = try fileURL(for: "personalFeed")
+            try data.write(to: outfile)
+        }
+        _ = try await task.value
+    }
+    
+    func loadPersonalFeed() async throws {
+        let task = Task<Feed, Error> {
+            let fileURL = try self.fileURL(for: "personalFeed")
+            guard let data = try? Data(contentsOf: fileURL) else {
+                return Feed(feedID: self.personalID)
+            }
+            let personalFeed = try JSONDecoder().decode(Feed.self, from: data)
+            return personalFeed
+        }
+        let personalFeed = try await task.value
+        self.personalFeed = personalFeed
     }
     
     

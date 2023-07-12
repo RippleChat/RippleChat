@@ -16,7 +16,8 @@ struct SettingsEditView: View {
             Section(header: Text("Personal Feed ID")) {
                 //Label(dataStore.personalID, systemImage: "person.crop.circle")
                 HStack {
-                    TextField(dataStore.personalID, text: $dataStore.personalID)
+                    TextField(dataStore.personalID, text: $dataStore.personalID) 
+
                 }
             }
             Section(header: Text("Friends")) {
@@ -30,16 +31,21 @@ struct SettingsEditView: View {
                         let key = dataStore.friends.keys.sorted()[index]
                         dataStore.friends.removeValue(forKey: key)
                     }
+                    dataStore.feedStores.remove(atOffsets: indexSet)
                     
                 }
                 }
                 HStack {
                     TextField("New Feed", text: $newFeedID)
                     Button(action: {
+                        let newFeed = Feed(feedID: newFeedID)
+                        let newFeedStore = FeedStore(feed: newFeed)
+                        dataStore.feedStores.append(newFeedStore)
                         withAnimation {
                             dataStore.friends[newFeedID] = 0
                             newFeedID = ""
                         }
+                        
                     }) {
                         Image(systemName: "plus.circle.fill")
                     }

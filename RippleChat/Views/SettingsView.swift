@@ -51,6 +51,7 @@ struct SettingsView: View {
                             ToolbarItem(placement: .confirmationAction) {
                                 Button("Done") {
                                     isPresentingEditView = false
+                                    dataStore.personalFeed = Feed(feedID: dataStore.personalID)
                                 }
                             }
                         }

@@ -16,6 +16,7 @@ struct RippleChatApp: App {
                 Task {
                     do {
                         try await dataStore.savePersonalID()
+                        try await dataStore.savePersonalFeed()
                         try await dataStore.saveFriends()
                         try await dataStore.saveFeedStores()
                     } catch {
@@ -27,6 +28,7 @@ struct RippleChatApp: App {
                 .task {
                     do {
                         try await dataStore.loadPersonalID()
+                        try await dataStore.loadPersonalFeed()
                         try await dataStore.loadFriends()
                         try await dataStore.loadFeedStores()
                     } catch {
