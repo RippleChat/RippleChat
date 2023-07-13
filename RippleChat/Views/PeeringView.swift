@@ -19,6 +19,20 @@ struct PeeringView: View {
             }
             .navigationTitle("Peering")
             .navigationViewStyle(StackNavigationViewStyle())
+            Button(action: {
+                do {
+                    let WANT_msg = WantMessage(friends: dataStore.friends)
+                    let encoded_msg = try JSONEncoder().encode(WANT_msg)
+                    
+
+                } catch {
+                    fatalError(error.localizedDescription)
+                }
+
+            }) {
+                
+            }
+            .padding()
         }
     }
 }
@@ -29,4 +43,10 @@ struct PeeringView_Previews: PreviewProvider {
             .environmentObject(BluetoothPeripheral())
             .environmentObject(BluetoothController())
     }
+}
+
+struct WantMessage: Codable {
+    var commmand = "WANT"
+    var friends = [String:Int]()
+    
 }

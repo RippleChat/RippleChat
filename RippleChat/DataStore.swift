@@ -10,9 +10,13 @@ import Foundation
 
 @MainActor
 class DataStore: ObservableObject {
+    
+    typealias FID = String
+    typealias SEQ = Int
+    
     @Published var personalID: String
     @Published var personalFeed: Feed
-    @Published var friends: [String:Int]
+    @Published var friends: [FID:SEQ]
     @Published var feedStores: [FeedStore]
     
     
