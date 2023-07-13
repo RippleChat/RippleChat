@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct PeeringView: View {
-    @ObservedObject private var bluetoothController = BluetoothController()
-    @ObservedObject private var bluetoothPeripheral = BluetoothPeripheral()
     @EnvironmentObject var dataStore: DataStore
+    @EnvironmentObject var btController: BluetoothController
+    @EnvironmentObject var btPeripheral: BluetoothPeripheral
     
     var body: some View {
-        Text("Peering View")
         NavigationStack {
-            List(bluetoothController.peripheralNames, id: \.self) { peripheral in
+            List(btController.peripheralNames, id: \.self) { peripheral in
                 Text(peripheral)
             }
-            .navigationTitle("Peripherals")
+            .navigationTitle("Peering")
             .navigationViewStyle(StackNavigationViewStyle())
         }
     }
@@ -27,5 +26,7 @@ struct PeeringView: View {
 struct PeeringView_Previews: PreviewProvider {
     static var previews: some View {
         PeeringView()
+            .environmentObject(BluetoothPeripheral())
+            .environmentObject(BluetoothController())
     }
 }

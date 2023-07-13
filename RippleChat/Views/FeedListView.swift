@@ -26,6 +26,7 @@ struct FeedListView: View {
                     }
                 }
             }
+            .navigationTitle("Feeds")
             NewFeedEntryView()
         }
     }

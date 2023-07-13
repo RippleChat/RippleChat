@@ -11,6 +11,8 @@ import CoreBluetooth
 struct ContentView: View {
     @State var currentView = 0
     @EnvironmentObject var dataStore: DataStore
+    @StateObject private var bluetoothController = BluetoothController()
+    @StateObject private var bluetoothPeripheral = BluetoothPeripheral()
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: ()->Void
     
@@ -20,12 +22,20 @@ struct ContentView: View {
             case 0:
                 PeeringView()
                     .environmentObject(dataStore)
+                    .environmentObject(bluetoothController)
+                    .environmentObject(bluetoothPeripheral)
+                    .navigationTitle("Peering")
             case 1:
                 FeedListView()
                     .environmentObject(dataStore)
+                    .environmentObject(bluetoothController)
+                    .environmentObject(bluetoothPeripheral)
+                    .navigationTitle("Feeds")
             case 2:
                 SettingsView()
                     .environmentObject(dataStore)
+                    .environmentObject(bluetoothController)
+                    .environmentObject(bluetoothPeripheral)
                     .navigationTitle("Settings")
             default:
                 FeedListView()
