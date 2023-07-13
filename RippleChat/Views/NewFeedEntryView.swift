@@ -16,11 +16,21 @@ struct NewFeedEntryView: View {
             HStack {
                 TextField("Enter your new feed message:", text: $newEntry)
                 Button(action: {
-                let nextSeq = dataStore.personalFeed.getLastLogEntry().sequenceNumber + 1
-                let newBody = Body(tag: Apps.txt, value: newEntry)
-                let newLogEntry = LogEntry(feedid: dataStore.personalID, sequenceNumber: nextSeq, body: newBody)
+                    let nextSeq = dataStore.personalFeed.getLastLogEntry().sequenceNumber + 1
+                    let newBody = Bodyy(tag: Apps.txt, value: newEntry)
+                    let newLogEntry = LogEntry(feedid: dataStore.personalID, sequenceNumber: nextSeq, body: newBody)
+                    dataStore.personalFeed.appendLogEntry(log: newLogEntry)
                 }) {
                     Text("Send")
+                }
+                .task {
+                    do {
+                        try await dataStore.savePersonalFeed()
+                    } catch {
+                        // Handle the error
+                        print("Error loading data: \(error)")
+                        fatalError(error.localizedDescription)
+                    }
                 }
             }
             Text("New entry: \(newEntry)")

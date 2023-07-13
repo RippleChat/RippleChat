@@ -13,9 +13,9 @@ struct LogEntry: Codable, Identifiable {
     
     let feedid: String
     let sequenceNumber: Int
-    let body: Body
+    let body: Bodyy
     
-    init(feedid: String = "", sequenceNumber: Int = 0, body: Body = Body()) {
+    init(feedid: String = "", sequenceNumber: Int = 0, body: Bodyy = Bodyy()) {
         self.feedid = feedid
         self.sequenceNumber = sequenceNumber
         self.body = body
@@ -24,5 +24,5 @@ struct LogEntry: Codable, Identifiable {
 }
 
 extension LogEntry {
-    static let sampleLogEntry = LogEntry(feedid: "BOB", sequenceNumber: 2, body: Body(tag: Apps.txt, value: "My first post!"))
+    static let sampleLogEntry = LogEntry(feedid: "BOB", sequenceNumber: 2, body: Bodyy(tag: Apps.txt, value: "My first post!"))
 }

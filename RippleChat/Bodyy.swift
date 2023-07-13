@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-public struct Body: Codable {
+public struct Bodyy: Codable {
     
     let tag: String
     let value: String
