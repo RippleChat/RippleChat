@@ -31,8 +31,15 @@ extension BluetoothController: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if !peripherals.contains(peripheral) {
+            centralManager?.connect(peripheral)
             self.peripherals.append(peripheral)
             self.peripheralNames.append(peripheral.name ?? "unnamed device")
+        }
+    }
+    
+    func sendWantVector(data: Data) {
+        for peripheral in peripherals {
+            //peripheral.writeValue(data, for: peripheral., type: .withoutResponse)
         }
     }
 }

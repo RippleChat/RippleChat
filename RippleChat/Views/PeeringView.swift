@@ -24,13 +24,11 @@ struct PeeringView: View {
                     let WANT_msg = WantMessage(friends: dataStore.friends)
                     let encoded_msg = try JSONEncoder().encode(WANT_msg)
                     
-
                 } catch {
                     fatalError(error.localizedDescription)
                 }
 
             }) {
-                
             }
             .padding()
         }
