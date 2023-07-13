@@ -20,6 +20,7 @@ struct NewFeedEntryView: View {
                     let newBody = Bodyy(tag: Apps.txt, value: newEntry)
                     let newLogEntry = LogEntry(feedid: dataStore.personalID, sequenceNumber: nextSeq, body: newBody)
                     dataStore.personalFeed.appendLogEntry(log: newLogEntry)
+                    newEntry = ""
                 }) {
                     Text("Send")
                 }
@@ -33,7 +34,6 @@ struct NewFeedEntryView: View {
                     }
                 }
             }
-            Text("New entry: \(newEntry)")
         }
         .padding()
     }
@@ -42,5 +42,6 @@ struct NewFeedEntryView: View {
 struct NewFeedEntryView_Previews: PreviewProvider {
     static var previews: some View {
         NewFeedEntryView()
+            .environmentObject(DataStore.sampleDataStore)
     }
 }
