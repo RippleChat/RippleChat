@@ -10,6 +10,7 @@ import CoreBluetooth
 
 class BluetoothPeripheral: NSObject, ObservableObject {
     
+    @Published var incomingMsg: String = ""
     private var peripheralManager: CBPeripheralManager?
     
     let BLE_SERVICE_UUID = CBUUID(string: "6e400001-7646-4b5b-9a50-71becce51558")
@@ -63,7 +64,8 @@ extension BluetoothPeripheral: CBPeripheralManagerDelegate {
                 do {
                     let receivedObject = try decoder.decode(String.self, from: receivedData)
                     // Use the received object to update your app state as needed
-                    print(receivedObject)
+                    print("Received Write")
+                    self.incomingMsg = receivedObject
                 } catch {
                     print("Failed to decode JSON: \(error)")
                 }

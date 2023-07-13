@@ -19,16 +19,19 @@ struct PeeringView: View {
             }
             .navigationTitle("Peering")
             .navigationViewStyle(StackNavigationViewStyle())
+            Text("Incoming msg: \(btPeripheral.incomingMsg)")
             Button(action: {
                 do {
                     let WANT_msg = WantMessage(friends: dataStore.friends)
                     let encoded_msg = try JSONEncoder().encode(WANT_msg)
-                    btController.writeToCharacteristics(message: String(data: encoded_msg, encoding: .utf8)!)
+                    //btController.writeToCharacteristics(message: String(data: encoded_msg, encoding: .utf8)!)
+                    btController.writeToCharacteristics(message: "Test")
+                    print("Pressed Button")
                 } catch {
                     fatalError(error.localizedDescription)
                 }
-
             }) {
+                Text("Send WANT-Vector")
             }
             .padding()
         }

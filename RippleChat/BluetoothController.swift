@@ -60,11 +60,12 @@ extension BluetoothController: CBCentralManagerDelegate {
             return
         }
 
+        print("Writing to Characteristic...")
         // Go through 
         for characteristic in writeCharacteristics {
             // Go through connected peripherals and write to their characteristic
             for peripheral in peripherals {
-                peripheral.writeValue(messageData, for: characteristic, type: .withResponse)
+                peripheral.writeValue(messageData, for: characteristic, type: .withoutResponse)
             }
         }
     }
