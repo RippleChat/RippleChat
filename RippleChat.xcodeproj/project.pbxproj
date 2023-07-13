@@ -25,6 +25,7 @@
 		F5847B662A599EA4009E28D4 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B652A599EA4009E28D4 /* Feed.swift */; };
 		F5847B6A2A59AB24009E28D4 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5847B692A59AB24009E28D4 /* FeedStore.swift */; };
 		F58EB2D02A5590E800E22DA6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F58EB2CF2A5590E800E22DA6 /* README.md */; };
+		F59375722A5FF344001FA46A /* FeedDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59375712A5FF344001FA46A /* FeedDetailView.swift */; };
 		F5A4B1212A5D4D1F00F5AE01 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1202A5D4D1F00F5AE01 /* SettingsView.swift */; };
 		F5A4B1232A5D5F8B00F5AE01 /* BTPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1222A5D5F8B00F5AE01 /* BTPeripheral.swift */; };
 		F5A4B1252A5D7A8D00F5AE01 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4B1242A5D7A8D00F5AE01 /* DataStore.swift */; };
@@ -72,6 +73,7 @@
 		F5847B652A599EA4009E28D4 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		F5847B692A59AB24009E28D4 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		F58EB2CF2A5590E800E22DA6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F59375712A5FF344001FA46A /* FeedDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailView.swift; sourceTree = "<group>"; };
 		F5A4B1202A5D4D1F00F5AE01 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F5A4B1222A5D5F8B00F5AE01 /* BTPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTPeripheral.swift; sourceTree = "<group>"; };
 		F5A4B1242A5D7A8D00F5AE01 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				F5A4B1262A5D861E00F5AE01 /* SettingsEditView.swift */,
 				F5F1419B2A5EFA3600C81B1A /* LogEntryView.swift */,
 				F5F1419D2A5EFA4700C81B1A /* FeedCardView.swift */,
+				F59375712A5FF344001FA46A /* FeedDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				F5F1419C2A5EFA3600C81B1A /* LogEntryView.swift in Sources */,
 				F5847B6A2A59AB24009E28D4 /* FeedStore.swift in Sources */,
 				F5A4B1272A5D861E00F5AE01 /* SettingsEditView.swift in Sources */,
+				F59375722A5FF344001FA46A /* FeedDetailView.swift in Sources */,
 				F5F1419E2A5EFA4700C81B1A /* FeedCardView.swift in Sources */,
 				F581F59B2A5AE72F0081C383 /* BluetoothController.swift in Sources */,
 				96454F1D2A558EBC0040BEBD /* ContentView.swift in Sources */,
@@ -493,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RippleChat/Preview Content\"";
-				DEVELOPMENT_TEAM = GN2B48NJ47;
+				DEVELOPMENT_TEAM = B5S58UWR64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";
@@ -524,7 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RippleChat/Preview Content\"";
-				DEVELOPMENT_TEAM = GN2B48NJ47;
+				DEVELOPMENT_TEAM = B5S58UWR64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";

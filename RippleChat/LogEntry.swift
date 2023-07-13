@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct LogEntry: Codable {
+struct LogEntry: Codable, Identifiable {
+    
+    var id: UUID = UUID()
     
     let feedid: String
     let sequenceNumber: Int
@@ -19,4 +21,8 @@ struct LogEntry: Codable {
         self.body = body
     }
     
+}
+
+extension LogEntry {
+    static let sampleLogEntry = LogEntry(feedid: "BOB", sequenceNumber: 2, body: Body(tag: Apps.txt, value: "My first post!"))
 }

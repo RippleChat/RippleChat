@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct LogEntryView: View {
+    var logEntry: LogEntry
+    
+    init(logEntry: LogEntry) {
+        self.logEntry = logEntry
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack {
+                HStack {
+                    Text("SEQ: \(logEntry.sequenceNumber)")
+                    Spacer()
+                    Text("Tag: \(logEntry.body.tag)")
+                }
+                HStack {
+                    Text("Value: \(logEntry.body.value)")
+                    Spacer()
+                }
+            }
+        }
+        .padding()
     }
 }
 
 struct LogEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        LogEntryView()
+        LogEntryView(logEntry: LogEntry.sampleLogEntry)
     }
 }

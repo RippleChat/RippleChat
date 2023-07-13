@@ -24,9 +24,9 @@ struct FeedCardView: View {
             HStack {
                 Text("feedID: \(feed.feedID)")
                 Spacer()
-                Text("Sequence Number: \(lastLogEntry.sequenceNumber)")
+                Text("SEQ: \(lastLogEntry.sequenceNumber)")
             }
-            Text("Log Entry: \(lastLogEntry.body.value)")
+            Text("Last: \(lastLogEntry.body.value)")
         }
         .padding()
     }

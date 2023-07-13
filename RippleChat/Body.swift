@@ -5,9 +5,10 @@
 //  Created by Severin Memmishofer on 08.07.23.
 //
 
+import SwiftUI
 import Foundation
 
-struct Body: Codable {
+public struct Body: Codable {
     
     let tag: String
     let value: String

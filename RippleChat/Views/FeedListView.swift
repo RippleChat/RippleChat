@@ -11,21 +11,23 @@ struct FeedListView: View {
     @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
-        Text("FeedListView")
-        Image(systemName: "globe")
-            .imageScale(.large)
-            .foregroundColor(.accentColor)
-        Text("Hello, world!")
-        Button("Save Feed") {
-        }
         NavigationStack {
-            List(dataStore.feedStores) { feedStore in
-                NavigationLink(destination: Text(feedStore.feed.feedID)) {
-                    FeedCardView(feed: feedStore.feed)
+            Form {
+                Section(header: Text("Your own Feed:")) {
+                    NavigationLink(destination: FeedDetailView(feed: dataStore.personalFeed)) {
+                        FeedCardView(feed: dataStore.personalFeed)
+                    }
+                }
+                Section(header: Text("Feeds of your Firends")) {
+                    List(dataStore.feedStores) { feedStore in
+                        NavigationLink(destination: FeedDetailView(feed: feedStore.feed)) {
+                            FeedCardView(feed: feedStore.feed)
+                        }
+                    }
                 }
             }
+            NewFeedEntryView()
         }
-        NewFeedEntryView()
     }
 }
 

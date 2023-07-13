@@ -17,6 +17,14 @@ struct Feed: Codable {
         self.feed = feed
     }
     
+    func getLastLogEntry() -> LogEntry {
+        if self.feed.isEmpty {
+            return LogEntry()
+        } else {
+            return self.feed.last!
+        }
+    }
+    
 }
 
 extension Feed {
