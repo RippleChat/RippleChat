@@ -32,7 +32,7 @@ struct FeedCardView: View {
     }
 }
 
-struct FeedDetailView_Previews: PreviewProvider {
+struct FeedCardView_Previews: PreviewProvider {
     static var previews: some View {
         FeedCardView(feed: Feed.sampleFeed)
             .environmentObject(DataStore.sampleDataStore)

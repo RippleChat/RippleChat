@@ -25,7 +25,7 @@ struct FeedDetailView: View {
     }
 }
 
-struct FeedsDetailView_Previews: PreviewProvider {
+struct FeedDetailView_Previews: PreviewProvider {
     static var previews: some View {
         FeedDetailView(feed: Feed.sampleFeed)
             .environmentObject(DataStore.sampleDataStore)
