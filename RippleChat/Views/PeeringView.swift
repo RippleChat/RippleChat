@@ -23,7 +23,7 @@ struct PeeringView: View {
                 do {
                     let WANT_msg = WantMessage(friends: dataStore.friends)
                     let encoded_msg = try JSONEncoder().encode(WANT_msg)
-                    
+                    btController.writeToCharacteristics(message: String(data: encoded_msg, encoding: .utf8)!)
                 } catch {
                     fatalError(error.localizedDescription)
                 }

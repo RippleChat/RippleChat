@@ -13,6 +13,8 @@ class BluetoothController: NSObject, ObservableObject {
     private var peripherals: [CBPeripheral] = []
     @Published var peripheralNames: [String] = []
     
+    var writeCharacteristics: [CBCharacteristic] = []
+    
     let BLE_SERVICE_UUID = CBUUID(string: "6e400001-7646-4b5b-9a50-71becce51558")
     let BLE_CHARACTERISTIC_UUID_RX = CBUUID(string: "6e400002-7646-4b5b-9a50-71becce51558")
     
@@ -37,9 +39,33 @@ extension BluetoothController: CBCentralManagerDelegate {
         }
     }
     
-    func sendWantVector(data: Data) {
-        for peripheral in peripherals {
-            //peripheral.writeValue(data, for: peripheral., type: .withoutResponse)
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        guard let characteristics = service.characteristics else {
+            print("No characteristics found for service \(service.uuid)")
+            return
+        }
+
+        for characteristic in characteristics {
+            if characteristic.properties.contains(.write) || characteristic.properties.contains(.writeWithoutResponse) {
+                // This characteristic supports writing
+                writeCharacteristics.append(characteristic)
+            }
+        }
+    }
+
+    func writeToCharacteristics(message: String) {
+        guard let messageData = message.data(using: .utf8) else {
+            print("Could not convert message to data.")
+            return
+        }
+
+        // Go through 
+        for characteristic in writeCharacteristics {
+            // Go through connected peripherals and write to their characteristic
+            for peripheral in peripherals {
+                peripheral.writeValue(messageData, for: characteristic, type: .withResponse)
+            }
         }
     }
 }

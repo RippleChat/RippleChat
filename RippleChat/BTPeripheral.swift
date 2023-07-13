@@ -51,4 +51,35 @@ extension BluetoothPeripheral: CBPeripheralManagerDelegate {
         print("Started Advertising")
        
     }
+    
+    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
+        for request in requests {
+            if let value = request.value {
+                // Handle the received data
+                let receivedData = Data(value)
+                
+                // Decode the received JSON string into your data structure
+                let decoder = JSONDecoder()
+                do {
+                    let receivedObject = try decoder.decode(String.self, from: receivedData)
+                    // Use the received object to update your app state as needed
+                    print(receivedObject)
+                } catch {
+                    print("Failed to decode JSON: \(error)")
+                }
+                
+                // If you want to write back to the central
+//                if let central = request.central {
+//                    let dataToWrite = // some data you want to send back
+//                    let writeType: CBCharacteristicWriteType = // choose .withResponse or .withoutResponse
+//                    central.writeValue(dataToWrite, for: request.characteristic, type: writeType)
+//                }
+                
+            }
+            
+            // Respond to the write request
+            peripheral.respond(to: request, withResult: .success)
+        }
+    }
+
 }
