@@ -44,14 +44,44 @@ extension BluetoothPeripheral: CBPeripheralManagerDelegate {
     }
     
     func addBTService() {
-        let myCharacteristic = CBMutableCharacteristic(type: BLE_CHARACTERISTIC_UUID_RX, properties: [.read, .write, .notify], value: nil, permissions: [.readable, .writeable])
+        let myCharacteristic = CBMutableCharacteristic(type: BLE_CHARACTERISTIC_UUID_RX, properties: [.read, .write, .notify, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
         let myService = CBMutableService(type: BLE_SERVICE_UUID, primary: true)
         myService.characteristics = [myCharacteristic]
         peripheralManager!.add(myService)
+    }
+    
+    func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?) {
         peripheralManager!.startAdvertising([CBAdvertisementDataLocalNameKey : "RippleChat", CBAdvertisementDataServiceUUIDsKey: [BLE_SERVICE_UUID]])
         print("Started Advertising")
-       
+        if(peripheralManager?.delegate == nil) {
+            print("peripheral is nil")
+        } else {
+            print("peripheral is not nil")
+        }
     }
+    
+    func discoverServices(_ serviceUUIDs: [CBUUID]?) {
+        print("test Peripheral")
+        print("Discovering services... \(String(describing: serviceUUIDs))")
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        print("Discovering Services Peripheral")
+//            print("*******************************************************")
+//
+//            if ((error) != nil) {
+//                print("Error discovering services: \(error!.localizedDescription)")
+//                return
+//            }
+//            guard let services = peripheral.services else {
+//                return
+//            }
+//            //We need to discover the all characteristic
+//            for service in services {
+//                peripheral.discoverCharacteristics(nil, for: service)
+//            }
+//            print("Discovered Services: \(services)")
+        }
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
         for request in requests {
@@ -59,13 +89,16 @@ extension BluetoothPeripheral: CBPeripheralManagerDelegate {
                 // Handle the received data
                 let receivedData = Data(value)
                 
+                print(receivedData)
+                
                 // Decode the received JSON string into your data structure
                 let decoder = JSONDecoder()
                 do {
-                    let receivedObject = try decoder.decode(String.self, from: receivedData)
+                    let receivedObject = try decoder.decode(WantMessage.self, from: receivedData)
                     // Use the received object to update your app state as needed
                     print("Received Write")
-                    self.incomingMsg = receivedObject
+                    self.incomingMsg = receivedObject.printMsg()
+                    print(receivedObject.printMsg())
                 } catch {
                     print("Failed to decode JSON: \(error)")
                 }

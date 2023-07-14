@@ -24,8 +24,8 @@ struct PeeringView: View {
                 do {
                     let WANT_msg = WantMessage(friends: dataStore.friends)
                     let encoded_msg = try JSONEncoder().encode(WANT_msg)
-                    //btController.writeToCharacteristics(message: String(data: encoded_msg, encoding: .utf8)!)
-                    btController.writeToCharacteristics(message: "Test")
+                    btController.writeToCharacteristics(message: String(data: encoded_msg, encoding: .utf8)!)
+                    //btController.writeToCharacteristics(message: "Test")
                     print("Pressed Button")
                 } catch {
                     fatalError(error.localizedDescription)
@@ -47,7 +47,10 @@ struct PeeringView_Previews: PreviewProvider {
 }
 
 struct WantMessage: Codable {
-    var commmand = "WANT"
+    var command = "WANT"
     var friends = [String:Int]()
     
+    func printMsg() -> String {
+        return ("\(command) : \(friends.description)")
+    }
 }

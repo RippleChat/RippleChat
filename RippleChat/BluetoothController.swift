@@ -22,23 +22,60 @@ class BluetoothController: NSObject, ObservableObject {
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: .main)
     }
+    
+//    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+//    }
 }
 
-extension BluetoothController: CBCentralManagerDelegate {
+extension BluetoothController: CBCentralManagerDelegate, CBPeripheralDelegate {
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
+            print("Device is powered on...")
             self.centralManager?.scanForPeripherals(withServices: [BLE_SERVICE_UUID])
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if !peripherals.contains(peripheral) {
-            centralManager?.connect(peripheral)
+            peripheral.delegate = self
+            centralManager!.connect(peripheral)
             self.peripherals.append(peripheral)
             self.peripheralNames.append(peripheral.name ?? "unnamed device")
         }
     }
     
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        peripheral.discoverServices([BLE_SERVICE_UUID])
+        print("Connected to device \(String(describing: peripheral.name))")
+        if(centralManager?.delegate == nil) {
+            print("central is nil")
+        } else {
+            print("central is not nil")
+        }
+    }
+    
+//    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+//        print("Discovering services...")
+//        peripheral.discoverCharacteristics(BLE_CHARACTERISTIC_UUID_RX)
+//    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+            print("*******************************************************")
+
+            if ((error) != nil) {
+                print("Error discovering services: \(error!.localizedDescription)")
+                return
+            }
+            guard let services = peripheral.services else {
+                return
+            }
+            //We need to discover the all characteristic
+            for service in services {
+                peripheral.discoverCharacteristics(nil, for: service)
+            }
+            print("Discovered Services: \(services)")
+        }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let characteristics = service.characteristics else {
@@ -47,11 +84,18 @@ extension BluetoothController: CBCentralManagerDelegate {
         }
 
         for characteristic in characteristics {
-            if characteristic.properties.contains(.write) || characteristic.properties.contains(.writeWithoutResponse) {
-                // This characteristic supports writing
-                writeCharacteristics.append(characteristic)
+            if characteristic.uuid.isEqual(BLE_CHARACTERISTIC_UUID_RX) {
+                self.writeCharacteristics.append(characteristic)
+                peripheral.setNotifyValue(true, for: characteristic)
+                peripheral.readValue(for: characteristic)
+                print("Characteristic: \(characteristic.uuid)")
             }
         }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        print("updating characteristic value...")
+        print(characteristic.value ?? "Characteristic is nil")
     }
 
     func writeToCharacteristics(message: String) {
