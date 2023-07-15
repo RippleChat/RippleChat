@@ -98,6 +98,7 @@ extension BluetoothPeripheral: CBPeripheralManagerDelegate {
                     let receivedObject = try decoder.decode(WantMessage.self, from: receivedData)
                     // Use the received object to update your app state as needed
                     print("Received Write")
+                    self.incomingMsg = ""
                     self.incomingMsg = receivedObject.printMsg()
                     self.wantVector = receivedObject
                     print(receivedObject.printMsg())
