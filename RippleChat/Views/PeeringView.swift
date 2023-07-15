@@ -19,6 +19,12 @@ struct PeeringView: View {
             }
             .navigationTitle("Peering")
             .navigationViewStyle(StackNavigationViewStyle())
+            List {
+                ForEach(btPeripheral.wantVector.friends.keys.sorted(), id: \.self) { friend in
+                    Text("Feed: \(friend.description), SEQ: \(btPeripheral.wantVector.friends[friend] ?? -1)")
+                    // Send new log Entries...
+                }
+            }
             Text("Incoming msg: \(btPeripheral.incomingMsg)")
             Button(action: {
                 do {
@@ -51,6 +57,6 @@ struct WantMessage: Codable {
     var friends = [String:Int]()
     
     func printMsg() -> String {
-        return ("\(command) : \(friends.description)")
+        return ("{\(command) : \(friends.description)}")
     }
 }

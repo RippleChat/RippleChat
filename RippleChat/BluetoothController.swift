@@ -55,6 +55,10 @@ extension BluetoothController: CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
+        // Not implemented yet
+    }
+    
 //    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
 //        print("Discovering services...")
 //        peripheral.discoverCharacteristics(BLE_CHARACTERISTIC_UUID_RX)
