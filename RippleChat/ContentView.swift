@@ -11,7 +11,7 @@ import CoreBluetooth
 struct ContentView: View {
     @State var currentView = 0
     @EnvironmentObject var dataStore: DataStore
-    @StateObject private var bluetoothController = BluetoothController()
+    @StateObject private var bluetoothController = BTCentral()
     @StateObject private var bluetoothPeripheral = BluetoothPeripheral()
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: ()->Void
@@ -20,7 +20,7 @@ struct ContentView: View {
         VStack {
             switch self.currentView {
             case 0:
-                PeeringView()
+                DiscoveryView()
                     .environmentObject(dataStore)
                     .environmentObject(bluetoothController)
                     .environmentObject(bluetoothPeripheral)

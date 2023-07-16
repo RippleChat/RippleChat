@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreBluetooth
 
-class BluetoothController: NSObject, ObservableObject {
+class BTCentral: NSObject, ObservableObject {
     private var centralManager: CBCentralManager?
     private var peripherals: [CBPeripheral] = []
     @Published var peripheralNames: [String] = []
@@ -27,7 +27,7 @@ class BluetoothController: NSObject, ObservableObject {
 //    }
 }
 
-extension BluetoothController: CBCentralManagerDelegate, CBPeripheralDelegate {
+extension BTCentral: CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {

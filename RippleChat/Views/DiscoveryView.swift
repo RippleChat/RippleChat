@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct PeeringView: View {
+struct DiscoveryView: View {
     @EnvironmentObject var dataStore: DataStore
-    @EnvironmentObject var btController: BluetoothController
+    @EnvironmentObject var btCentral: BTCentral
     @EnvironmentObject var btPeripheral: BluetoothPeripheral
     
     var body: some View {
         NavigationStack {
-            List(btController.peripheralNames, id: \.self) { peripheral in
+            List(btCentral.peripheralNames, id: \.self) { peripheral in
                 Text(peripheral)
             }
-            .navigationTitle("Peering")
+            .navigationTitle("Peer Discovery")
             .navigationViewStyle(StackNavigationViewStyle())
             List {
                 ForEach(btPeripheral.wantVector.friends.keys.sorted(), id: \.self) { friend in
@@ -34,7 +34,7 @@ struct PeeringView: View {
                     combinedDict[dataStore.personalFeed.feedID] = dataStore.personalFeed.feed.count
                     let WANT_msg = WantMessage(friends: combinedDict)
                     let encoded_msg = try JSONEncoder().encode(WANT_msg)
-                    btController.writeToCharacteristics(message: String(data: encoded_msg, encoding: .utf8)!)
+                    btCentral.writeToCharacteristics(message: String(data: encoded_msg, encoding: .utf8)!)
                     //btController.writeToCharacteristics(message: "Test")
                     print("Pressed Button")
                 } catch {
@@ -62,11 +62,11 @@ struct PeeringView: View {
     }
 }
 
-struct PeeringView_Previews: PreviewProvider {
+struct DiscoveryView_Previews: PreviewProvider {
     static var previews: some View {
-        PeeringView()
+        DiscoveryView()
             .environmentObject(BluetoothPeripheral())
-            .environmentObject(BluetoothController())
+            .environmentObject(BTCentral())
     }
 }
 
